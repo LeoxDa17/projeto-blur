@@ -19,8 +19,8 @@ A Blur é um projeto/plataforma de e-commerce moderna desenvolvida para marcas d
   
   **•**	Checkout Simulado: Integração visual para dados de envio e pagamento.
 
-  
-  
+
+
 **Tecnologias Utilizadas:**
 O projeto foi construído utilizando as melhores práticas de desenvolvimento web moderno:
 
