@@ -2,21 +2,21 @@
 A Blur é um projeto/plataforma de e-commerce moderna desenvolvida para marcas de roupas urbanas que buscam uma experiência de usuário fluida, visual minimalista e alta performance. Este projeto simula desde a vitrine de produtos até o checkout final.
 
 **Funcionalidades:**
-  •	Navegação fácil e acessivel,
+  **•** Navegação fácil e acessivel,
   
-  •	Botão de favoritagem funcional,
+ **•** Botão de favoritagem funcional,
   
-  •	Buscador de CEP,
+  **•** Buscador de CEP,
   
-  •	Área de registro e login funcional,
+  **•** Área de registro e login funcional,
   
-  •	Sistema de Carrinho: Adição, remoção e cálculo em tempo real de itens,
+  **•** Sistema de Carrinho: Adição, remoção e cálculo em tempo real de itens,
   
-  •	Design Responsivo,
+  **•** Design Responsivo,
   
-  •	Páginas de Detalhes: Visualização ampliada de fotos e seleção de tamanhos,
+  **•** Páginas de Detalhes: Visualização ampliada de fotos e seleção de tamanhos,
   
-  •	Checkout Simulado: Integração visual para dados de envio e pagamento.
+  **•**	Checkout Simulado: Integração visual para dados de envio e pagamento.
 
 **Tecnologias Utilizadas:**
 O projeto foi construído utilizando as melhores práticas de desenvolvimento web moderno:
