@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre - Dubb Streetwear</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/about.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+   <header class="main-header">
+        <nav class="nav-container">
+            <div class="logo">
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="products.html">Produtos</a>
+                <a href="about.html">Sobre</a>
+                <a href="login.html" class="login-btn">Login</a>
+
+                <div class="user-info" style="display: none;">
+    <div class="user-avatar" id="userAvatar"></div>
+    <div class="user-dropdown" id="userDropdown">
+        <div class="user-dropdown-header">
+            <h4 id="userName">Carregando...</h4>
+            <p id="userEmail">Carregando...</p>
+        </div>
+        <ul class="user-dropdown-items">
+            <li onclick="window.location.href='favorites.html'">
+                <i class="fas fa-heart"></i> Favoritos
+                <span id="favoritesCount" class="favorites-count">0</span>
+            </li>
+            <li onclick="window.location.href='settings.html'">
+                <i class="fas fa-cog"></i> Configurações
+            </li>
+            <li class="logout-btn" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i> Sair
+            </li>
+        </ul>
+    </div>
+</div>
+                <a href="cart.html" class="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="about-page">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>BLUR.COMPANY</h1>
+            </div>
+        </section>
+
+        <!-- Nossa História -->
+        <section class="story-section">
+            <div class="container">
+                <div class="section-content">
+                    <div class="text-content">
+                        <h2>Nossa História</h2>
+                        <p>A Blur é uma empresa totalmente autonoma que foi iniciada com um propósito de atender um público que é fortemente ligado com a cultura streetwear,
+                        possuimos a autenticidade, a inclusão, a sustentabilidade e a qualidade como valores fortes da nossa marca,
+                        e estamos sempre dispostos a proporcionar a melhor experiência de compra para nossos clientes. 
+                        Somos mais do que só uma marca de roupa, somos uma expressão, onde cada coleção é pensada para quem vive busca a melhor forma de se expressar e se destacar.
+                        Nossa missão é transformar as pessoas na melhor versão delas mesmas, onde o que importa no final é se sentir bem com que veste.
+                        Seja você mesmo, seja Blur</p>
+ 
+                    </div>
+                    <div class="image-content">
+                        <img src="../assets/images/products/blur.jpg" alt="Nossa História">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nossos Valores -->
+        <section class="values-section">
+            <div class="container">
+                <h2>Nossos Valores</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <i class="fas fa-palette"></i>
+                        <h3>Criatividade</h3>
+                        <p>Cada peça é uma obra de arte única, criada para expressar individualidade.</p>
+                    </div>
+                    <div class="value-card">
+                        <i class="fas fa-hand-holding-heart"></i>
+                        <h3>Qualidade</h3>
+                        <p>Utilizamos apenas materiais premium para garantir conforto e durabilidade.</p>
+                    </div>
+                    <div class="value-card">
+                        <i class="fas fa-leaf"></i>
+                        <h3>Sustentabilidade</h3>
+                        <p>Comprometidos com práticas sustentáveis e produção consciente.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Processo Criativo -->
+        <section class="process-section">
+            <div class="container">
+                <h2>Processo Criativo</h2>
+                <div class="process-timeline">
+                    <div class="process-step">
+                        <div class="step-number">01</div>
+                        <h3>Conceito</h3>
+                        <p>Desenvolvimento da ideia e pesquisa artística</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">02</div>
+                        <h3>Design</h3>
+                        <p>Criação das artes e escolha dos materiais</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">03</div>
+                        <h3>Produção</h3>
+                        <p>Fabricação com atenção aos detalhes</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">04</div>
+                        <h3>Qualidade</h3>
+                        <p>Controle rigoroso de cada peça</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Equipe -->
+        <section class="team-section">
+            <div class="container">
+                <h2>Nossa Equipe</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="../assets/images/team/joao.png" alt="Membro da Equipe">
+                        </div>
+                        <h3>João Pedro Diniz</h3>
+                        <p>CEO</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="../assets/images/team/miguel.png" alt="Membro da Equipe">
+                        </div>
+                        <h3>Miguel Diego</h3>
+                        <p>Diretor de Negócios</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="../assets/images/team/leonardo.png" alt="Membro da Equipe">
+                        </div>
+                        <h3>Leonardo Araújo</h3>
+                        <p>Diretor de Desenvolvimento</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="../assets/images/team/eduardo.png" alt="Membro da Equipe">
+                        </div>
+                        <h3>Eduardo Rocha</h3>
+                        <p>Secretário Geral</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contato -->
+        <section class="contact-section">
+            <div class="container">
+                <h2>Entre em Contato</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                    </div>
+                    <form id="contact-form" class="contact-form">
+                        <input type="text" placeholder="Nome" required>
+                        <input type="email" placeholder="Email" required>
+                        <textarea placeholder="Mensagem" required></textarea>
+                        <button type="submit">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+   <footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-logo">
+            <h2>Blur</h2>
+        </div>
+         <div class="footer-contact">
+            <h4>Contato</h4>
+            <p>Email: Blurstreetwear@gmail.com</p>
+            <p>Tel: (11) 99999-9999</p>
+        </div>
+        <div class="footer-social">
+            <h4>Siga a Blur</h4>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/blurcompany_/?igsh=ZXlyYjdnaHJrc2pv#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Blur.Co. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+    <script src="../js/about.js"></script>
+
+    <script>
+   document.addEventListener('DOMContentLoaded', () => {
+    // Verificar se usuário está logado
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const userInfo = document.querySelector('.user-info');
+    const loginBtn = document.querySelector('.login-btn');
+    
+    if (currentUser) {
+        // Mostrar informações do usuário
+        userInfo.style.display = 'inline-flex';
+        loginBtn.style.display = 'none';
+        
+        const userAvatar = document.getElementById('userAvatar');
+        const userName = document.getElementById('userName');
+        const userEmail = document.getElementById('userEmail');
+        const favoritesCount = document.getElementById('favoritesCount');
+        
+        // Configurar avatar e informações
+        userAvatar.textContent = currentUser.name.charAt(0).toUpperCase();
+        userName.textContent = currentUser.name;
+        userEmail.textContent = currentUser.email;
+
+        // Atualizar contador de favoritos
+        const favorites = JSON.parse(localStorage.getItem(`favorites_${currentUser.email}`) || '[]');
+        favoritesCount.textContent = favorites.length;
+
+        // Toggle dropdown
+        userAvatar.addEventListener('click', (e) => {
+            e.stopPropagation();
+            document.getElementById('userDropdown').classList.toggle('active');
+        });
+
+        // Fechar dropdown quando clicar fora
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.user-info')) {
+                document.getElementById('userDropdown').classList.remove('active');
+            }
+        });
+
+        // Adicionar eventos de clique para os itens do menu
+        document.querySelectorAll('.user-dropdown-items li').forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const action = item.textContent.trim().toLowerCase();
+                
+                switch(action) {
+                    case 'favoritos':
+                        window.location.href = 'pages/favorites.html';
+                        break;
+                    case 'sair':
+                        logout();
+                        break;
+                    // Adicione mais casos conforme necessário
+                }
+            });
+        });
+
+    } else {
+        userInfo.style.display = 'none';
+        loginBtn.style.display = 'inline-block';
+    }
+});
+
+// Função de logout
+function logout() {
+    localStorage.removeItem('currentUser');
+    window.location.href = 'pages/login.html';
+}
+
+// Função para ir para favoritos (pode ser chamada de qualquer lugar)
+function goToFavorites() {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (currentUser) {
+        window.location.href = 'pages/favorites.html';
+    } else {
+        alert('Faça login para ver seus favoritos');
+        window.location.href = 'pages/login.html';
+    }
+}
+    </script>
+    <script src="../js/product-detail.js"></script>
+    <script src="../js/cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .footer-social .social-icons {
+        justify-content: center;
+    }
+}

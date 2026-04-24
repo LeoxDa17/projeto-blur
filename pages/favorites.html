@@ -1,0 +1,245 @@
+<!-- pages/favorites.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favoritos - Dubb Streetwear</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/favorites.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header class="main-header">
+        <nav class="nav-container">
+            <div class="logo">
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="products.html">Produtos</a>
+                <a href="about.html">Sobre</a>
+                <a href="login.html" class="login-btn">Login</a>
+
+                <div class="user-info" style="display: none;">
+    <div class="user-avatar" id="userAvatar"></div>
+    <div class="user-dropdown" id="userDropdown">
+        <div class="user-dropdown-header">
+            <h4 id="userName">Carregando...</h4>
+            <p id="userEmail">Carregando...</p>
+        </div>
+        <ul class="user-dropdown-items">
+            <li onclick="window.location.href='favorites.html'">
+                <i class="fas fa-heart"></i> Favoritos
+                <span id="favoritesCount" class="favorites-count">0</span>
+            </li>
+            <li onclick="window.location.href='settings.html'">
+                <i class="fas fa-cog"></i> Configurações
+            </li>
+            <li class="logout-btn" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i> Sair
+            </li>
+        </ul>
+    </div>
+</div>
+                <a href="cart.html" class="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+    <main class="favorites-container">
+        <div class="favorites-header">
+            <h1>Meus Favoritos</h1>
+            <p>Itens que você salvou para comprar depois</p>
+        </div>
+
+        <div id="favoritesGrid" class="favorites-grid">
+            <!-- Os itens favoritos serão inseridos aqui via JavaScript -->
+        </div>
+    </main>
+
+   <footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-logo">
+            <h2>Dubb</h2>
+        </div>
+         <div class="footer-contact">
+            <h4>Contato</h4>
+            <p>Email: dubbstreetwear@gmail.com</p>
+            <p>Tel: (11) 99999-9999</p>
+        </div>
+        <div class="footer-social">
+            <h4>Siga a Dubb</h4>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/blurcompany_/?igsh=ZXlyYjdnaHJrc2pv#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Dubb.Co. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+            <script>
+   document.addEventListener('DOMContentLoaded', () => {
+    // Verificar se usuário está logado
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const userInfo = document.querySelector('.user-info');
+    const loginBtn = document.querySelector('.login-btn');
+    
+    if (currentUser) {
+        // Mostrar informações do usuário
+        userInfo.style.display = 'inline-flex';
+        loginBtn.style.display = 'none';
+        
+        const userAvatar = document.getElementById('userAvatar');
+        const userName = document.getElementById('userName');
+        const userEmail = document.getElementById('userEmail');
+        const favoritesCount = document.getElementById('favoritesCount');
+        
+        // Configurar avatar e informações
+        userAvatar.textContent = currentUser.name.charAt(0).toUpperCase();
+        userName.textContent = currentUser.name;
+        userEmail.textContent = currentUser.email;
+
+        // Atualizar contador de favoritos
+        const favorites = JSON.parse(localStorage.getItem(`favorites_${currentUser.email}`) || '[]');
+        favoritesCount.textContent = favorites.length;
+
+        // Toggle dropdown
+        userAvatar.addEventListener('click', (e) => {
+            e.stopPropagation();
+            document.getElementById('userDropdown').classList.toggle('active');
+        });
+
+        // Fechar dropdown quando clicar fora
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.user-info')) {
+                document.getElementById('userDropdown').classList.remove('active');
+            }
+        });
+
+        // Adicionar eventos de clique para os itens do menu
+        document.querySelectorAll('.user-dropdown-items li').forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const action = item.textContent.trim().toLowerCase();
+                
+                switch(action) {
+                    case 'favoritos':
+                        window.location.href = 'pages/favorites.html';
+                        break;
+                    case 'sair':
+                        logout();
+                        break;
+                    // Adicione mais casos conforme necessário
+                }
+            });
+        });
+
+    } else {
+        userInfo.style.display = 'none';
+        loginBtn.style.display = 'inline-block';
+    }
+});
+
+// Função de logout
+function logout() {
+    localStorage.removeItem('currentUser');
+    window.location.href = 'pages/login.html';
+}
+
+// Função para ir para favoritos (pode ser chamada de qualquer lugar)
+function goToFavorites() {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (currentUser) {
+        window.location.href = 'pages/favorites.html';
+    } else {
+        alert('Faça login para ver seus favoritos');
+        window.location.href = 'pages/login.html';
+    }
+}
+    </script>
+    <script src="../js/product-detail.js"></script>
+    <script src="../js/cart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Verificar se usuário está logado
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            // Carregar favoritos do localStorage
+            const favorites = JSON.parse(localStorage.getItem(`favorites_${currentUser.email}`) || '[]');
+            const favoritesGrid = document.getElementById('favoritesGrid');
+
+            if (favorites.length === 0) {
+                // Mostrar mensagem quando não há favoritos
+                favoritesGrid.innerHTML = `
+                    <div class="empty-favorites">
+                        <i class="far fa-heart"></i>
+                        <h2>Sua lista de favoritos está vazia</h2>
+                        <p>Explore nossa coleção e adicione itens aos seus favoritos</p>
+                        <a href="products.html" class="browse-products-btn">
+                            Ver Produtos
+                        </a>
+                    </div>
+                `;
+                return;
+            }
+
+            // Renderizar favoritos
+            favoritesGrid.innerHTML = favorites.map(item => `
+                <div class="favorite-card" data-id="${item.id}">
+                    <div class="favorite-image">
+                        <img src="${item.image}" alt="${item.name}">
+                    </div>
+                    <div class="favorite-info">
+                        <h3 class="favorite-name">${item.name}</h3>
+                        <p class="favorite-price">R$ ${item.price.toFixed(2)}</p>
+                        <div class="favorite-actions">
+                            <button class="action-btn remove-favorite-btn" onclick="removeFavorite(${item.id})">
+                                <i class="fas fa-trash"></i>
+                                Remover
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        });
+
+        function removeFavorite(productId) {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            let favorites = JSON.parse(localStorage.getItem(`favorites_${currentUser.email}`) || '[]');
+            
+            favorites = favorites.filter(item => item.id !== productId);
+            localStorage.setItem(`favorites_${currentUser.email}`, JSON.stringify(favorites));
+            
+            // Recarregar a página para atualizar a lista
+            location.reload();
+        }
+
+        function getFavoriteById(id) {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            const favorites = JSON.parse(localStorage.getItem(`favorites_${currentUser.email}`) || '[]');
+            return favorites.find(item => item.id === id);
+        }
+    </script>
+</body>
+</html>

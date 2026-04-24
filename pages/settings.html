@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações</title>
+    <link rel="stylesheet" href="../css/settings.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+        <header class="main-header">
+        <nav class="nav-container">
+            <div class="logo">
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="products.html">Produtos</a>
+                <a href="about.html">Sobre</a>
+                <a href="login.html" class="login-btn">Login</a>
+
+                <div class="user-info" style="display: none;">
+    <div class="user-avatar" id="userAvatar"></div>
+    <div class="user-dropdown" id="userDropdown">
+        <div class="user-dropdown-header">
+            <h4 id="userName">Carregando...</h4>
+            <p id="userEmail">Carregando...</p>
+        </div>
+        <ul class="user-dropdown-items">
+            <li onclick="window.location.href='favorites.html'">
+                <i class="fas fa-heart"></i> Favoritos
+                <span id="favoritesCount" class="favorites-count">0</span>
+            </li>
+            <li onclick="window.location.href='settings.html'">
+                <i class="fas fa-cog"></i> Configurações
+            </li>
+            <li class="logout-btn" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i> Sair
+            </li>
+        </ul>
+    </div>
+</div>
+                <a href="cart.html" class="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="settings-container">
+        <div class="settings-header">
+            <h1>Configurações</h1>
+        </div>
+
+        <div class="settings-section">
+            <h2><i class="fas fa-user"></i> Informações Pessoais</h2>
+            <form class="settings-form">
+                <div class="form-group">
+                    <label>Nome Completo</label>
+                    <input type="text" id="fullName" value="Nome do Usuário">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="email" value="email@exemplo.com">
+                </div>
+            </form>
+        </div>
+
+        <div class="settings-section">
+            <h2><i class="fas fa-bell"></i> Notificações</h2>
+            <div class="notification-option">
+                <span>Novos produtos</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            <div class="notification-option">
+                <span>Promoções</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            <div class="notification-option">
+                <span>Newsletter</span>
+                <label class="toggle-switch">
+                    <input type="checkbox">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <div class="settings-section">
+            <h2><i class="fas fa-lock"></i> Segurança</h2>
+            <div class="form-group">
+                <label>Senha Atual</label>
+                <input type="password">
+            </div>
+            <div class="form-group">
+                <label>Nova Senha</label>
+                <input type="password">
+            </div>
+            <div class="form-group">
+                <label>Confirmar Nova Senha</label>
+                <input type="password">
+            </div>
+        </div>
+
+        <button class="save-button">Salvar Alterações</button>
+
+        <div class="danger-zone">
+            <h3>Zona de Perigo</h3>
+            <p>Atenção: esta ação não pode ser desfeita.</p>
+            <br/>
+            <button class="delete-account-btn">Excluir Conta</button>
+        </div>
+    </main>
+
+   <footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-logo">
+            <h2>Dubb</h2>
+        </div>
+         <div class="footer-contact">
+            <h4>Contato</h4>
+            <p>Email: dubbstreetwear@gmail.com</p>
+            <p>Tel: (11) 99999-9999</p>
+        </div>
+        <div class="footer-social">
+            <h4>Siga a Dubb</h4>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/blurcompany_/?igsh=ZXlyYjdnaHJrc2pv#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Dubb.Co. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Carregar dados do usuário
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            // Preencher campos com dados do usuário
+            document.getElementById('fullName').value = currentUser.name;
+            document.getElementById('email').value = currentUser.email;
+
+            // Salvar alterações
+            document.querySelector('.save-button').addEventListener('click', () => {
+                const updatedUser = {
+                    ...currentUser,
+                    name: document.getElementById('fullName').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value
+                };
+
+                localStorage.setItem('currentUser', JSON.stringify(updatedUser));
+                alert('Configurações salvas com sucesso!');
+            });
+
+            // Excluir conta
+            document.querySelector('.delete-account-btn').addEventListener('click', () => {
+                if (confirm('Tem certeza que deseja excluir sua conta? Esta ação não pode ser desfeita.')) {
+                    localStorage.removeItem('currentUser');
+                    window.location.href = 'login.html';
+                }
+            });
+        });
+    </script>
+    <script src="../js/cart.js"></script>
+    <script src="../js/product-detail.js"></script>
+    <script>
+   document.addEventListener('DOMContentLoaded', () => {
+    // Verificar se usuário está logado
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const userInfo = document.querySelector('.user-info');
+    const loginBtn = document.querySelector('.login-btn');
+    
+    if (currentUser) {
+        // Mostrar informações do usuário
+        userInfo.style.display = 'inline-flex';
+        loginBtn.style.display = 'none';
+        
+        const userAvatar = document.getElementById('userAvatar');
+        const userName = document.getElementById('userName');
+        const userEmail = document.getElementById('userEmail');
+        const favoritesCount = document.getElementById('favoritesCount');
+        
+        // Configurar avatar e informações
+        userAvatar.textContent = currentUser.name.charAt(0).toUpperCase();
+        userName.textContent = currentUser.name;
+        userEmail.textContent = currentUser.email;
+
+        // Atualizar contador de favoritos
+        const favorites = JSON.parse(localStorage.getItem(`favorites_${currentUser.email}`) || '[]');
+        favoritesCount.textContent = favorites.length;
+
+        // Toggle dropdown
+        userAvatar.addEventListener('click', (e) => {
+            e.stopPropagation();
+            document.getElementById('userDropdown').classList.toggle('active');
+        });
+
+        // Fechar dropdown quando clicar fora
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.user-info')) {
+                document.getElementById('userDropdown').classList.remove('active');
+            }
+        });
+
+        // Adicionar eventos de clique para os itens do menu
+        document.querySelectorAll('.user-dropdown-items li').forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const action = item.textContent.trim().toLowerCase();
+                
+                switch(action) {
+                    case 'favoritos':
+                        window.location.href = 'pages/favorites.html';
+                        break;
+                    case 'sair':
+                        logout();
+                        break;
+                    // Adicione mais casos conforme necessário
+                }
+            });
+        });
+
+    } else {
+        userInfo.style.display = 'none';
+        loginBtn.style.display = 'inline-block';
+    }
+});
+
+// Função de logout
+function logout() {
+    localStorage.removeItem('currentUser');
+    window.location.href = 'pages/login.html';
+}
+
+// Função para ir para favoritos (pode ser chamada de qualquer lugar)
+function goToFavorites() {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (currentUser) {
+        window.location.href = 'pages/favorites.html';
+    } else {
+        alert('Faça login para ver seus favoritos');
+        window.location.href = 'pages/login.html';
+    }
+}
+    </script>
+</body>
+</html>

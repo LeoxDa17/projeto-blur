@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>War of Angels</title>
+    <link rel="stylesheet" href="../css/war.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+ <header class="main-header">
+        <nav class="nav-container">
+            <div class="logo">
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="products.html">Produtos</a>
+                <a href="about.html">Sobre</a>
+                <a href="login.html" class="login-btn">Login</a>
+
+                <div class="user-info" style="display: none;">
+    <div class="user-avatar" id="userAvatar"></div>
+    <div class="user-dropdown" id="userDropdown">
+        <div class="user-dropdown-header">
+            <h4 id="userName">Carregando...</h4>
+            <p id="userEmail">Carregando...</p>
+        </div>
+        <ul class="user-dropdown-items">
+            <li onclick="window.location.href='favorites.html'">
+                <i class="fas fa-heart"></i> Favoritos
+                <span id="favoritesCount" class="favorites-count">0</span>
+            </li>
+            <li onclick="window.location.href='settings.html'">
+                <i class="fas fa-cog"></i> Configurações
+            </li>
+            <li class="logout-btn" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i> Sair
+            </li>
+        </ul>
+    </div>
+</div>
+                <a href="cart.html" class="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+<main class="product-detail">
+        <div class="product-container">
+            <!-- Breadcrumb -->
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a> /
+                <a href="products.html">Coleção</a> /
+                <span>War of Angels</span>
+            </div>
+
+            <div class="product-showcase">
+                <!-- Galeria do Produto -->
+                <div class="product-gallery">
+                    <div class="product-card">
+                        <div class="product-inner">
+                            <div class="product-front">
+                                <img src="../assets/images/products/5.jpg" alt="Frente da Camiseta">
+                            </div>
+                            <div class="product-back">
+                                <img src="../assets/images/products/6.jpg" alt="Verso da Camiseta">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-thumbnails">
+                        <img src="../assets/images/products/5.jpg" alt="Frente" class="active">
+                        <img src="../assets/images/products/6.jpg" alt="Costas">
+                    </div>
+                </div>
+
+                <!-- Informações do Produto -->
+                <div class="product-info">
+                    <h1>War of Angels</h1>
+                    <div class="product-meta">
+                        <span class="collection">Coleção: Angels in Blur</span>
+                        <span class="sku">SKU: WA-2024-03</span>
+                    </div>
+
+                    <div class="price-container">
+                        <span class="price">R$ 109,90</span>
+                        <span class="installments">3x de R$ 36,63 sem juros</span>
+                    </div>
+
+                    <div class="product-description">
+                        <p>Camiseta oversized com arte exclusiva da coleção Angels & Dubb. Design único desenvolvido pela nossa equipe criativa.</p>
+                        <ul class="features">
+                            <li><i class="fas fa-tshirt"></i> 100% Algodão Premium</li>
+                            <li><i class="fas fa-paint-brush"></i> Silk Screen de Alta Qualidade</li>
+                            <li><i class="fas fa-ruler"></i> Modelagem Oversized</li>
+                            <li><i class="fas fa-check"></i> Produção Limitada</li>
+                        </ul>
+                    </div>
+
+                    <div class="size-section">
+                        <div class="size-header">
+                            <h3>Tamanho</h3>
+                            <button class="size-guide-btn" onclick="openSizeGuide()">
+                                <i class="fas fa-ruler"></i> Guia de Tamanhos
+                            </button>
+                        </div>
+                        <div class="sizes">
+                            <button class="size-option" data-size="P">P</button>
+                            <button class="size-option" data-size="M">M</button>
+                            <button class="size-option" data-size="G">G</button>
+                            <button class="size-option" data-size="GG">GG</button>
+                        </div>
+                    </div>
+
+                    <div class="actions">
+                        <div class="quantity-selector">
+                            <button onclick="updateQuantity(-1)">-</button>
+                            <input type="number" id="quantity" value="1" min="1" max="10">
+                            <button onclick="updateQuantity(1)">+</button>
+                        </div>
+                        <button class="buy-button" 
+                                data-id="1" 
+                                data-name="War of Angels" 
+                                data-price="109.90">
+                            <i class="fas fa-shopping-cart"></i>
+                            Adicionar ao Carrinho
+                        </button>
+                        <button onclick="addToFavorites({
+                            id: 3,
+                            name: 'War of Angels',
+                            price: 109.90,
+                            image: '../assets/images/products/5.jpg'
+                        })" class="favorite-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+
+                    <div class="shipping-calculator">
+                        <h3>Calcular Frete</h3>
+                        <div class="shipping-input">
+                            <input type="text" placeholder="Digite seu CEP" maxlength="8">
+                            <button onclick="calculateShipping()">Calcular</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Informações Adicionais -->
+            <div class="additional-info">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="details">Detalhes</button>
+                    <button class="tab-btn" data-tab="care">Cuidados</button>
+                    <button class="tab-btn" data-tab="shipping">Envio</button>
+                </div>
+
+                <div class="tab-content active" id="details">
+                    <h3>Detalhes do Produto</h3>
+                    <ul>
+                        <br/>
+                        <br/>
+                        <li>Tecido: 100% Algodão 180g</li>
+                        <li>Estampa: Silk Screen com pigmentos especiais</li>
+                        <li>Gola: Ribana reforçada</li>
+                        <li>Acabamento premium</li>
+                        <li>Etiqueta bordada</li>
+                    </ul>
+                </div>
+
+                <div class="tab-content" id="care">
+                    <h3>Instruções de Cuidado</h3>
+                    <ul>
+                        <br/>
+                        <br/>
+                        <li>Lavar à mão ou máquina em água fria</li>
+                        <li>Não usar alvejante</li>
+                        <li>Não secar em secadora</li>
+                        <li>Passar do avesso</li>
+                        <li>Não lavar com peças coloridas</li>
+                    </ul>
+                </div>
+
+                <div class="tab-content" id="shipping">
+                    <h3>Informações de Envio</h3>
+                    <ul>
+                        <br/>
+                        <br/>
+                        <li>Envio para todo Brasil</li>
+                        <li>Prazo médio de 3-7 dias úteis</li>
+                        <li>Frete grátis para compras acima de R$ 299</li>
+                        <li>Embalagem especial anti-amasso</li>
+                    </ul>
+                </div>
+            </div>
+
+
+<div id="size-guide-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Guia de Tamanhos</h2>
+        <table class="size-table">
+            <thead>
+                <tr>
+                    <th>Tamanho</th>
+                    <th>Largura (cm)</th>
+                    <th>Comprimento (cm)</th>
+                    <th>Manga (cm)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>P</td>
+                    <td>52</td>
+                    <td>70</td>
+                    <td>22</td>
+                </tr>
+                <tr>
+                    <td>M</td>
+                    <td>54</td>
+                    <td>72</td>
+                    <td>23</td>
+                </tr>
+                <tr>
+                    <td>G</td>
+                    <td>56</td>
+                    <td>74</td>
+                    <td>24</td>
+                </tr>
+                <tr>
+                    <td>GG</td>
+                    <td>58</td>
+                    <td>76</td>
+                    <td>25</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+    <script src="../js/cart.js"></script>
+    <script src="../js/product-detail.js"></script>
+    <script>
+   document.addEventListener('DOMContentLoaded', () => {
+    // Verificar se usuário está logado
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const userInfo = document.querySelector('.user-info');
+    const loginBtn = document.querySelector('.login-btn');
+    
+    if (currentUser) {
+        // Mostrar informações do usuário
+        userInfo.style.display = 'inline-flex';
+        loginBtn.style.display = 'none';
+        
+        const userAvatar = document.getElementById('userAvatar');
+        const userName = document.getElementById('userName');
+        const userEmail = document.getElementById('userEmail');
+        const favoritesCount = document.getElementById('favoritesCount');
+        
+        // Configurar avatar e informações
+        userAvatar.textContent = currentUser.name.charAt(0).toUpperCase();
+        userName.textContent = currentUser.name;
+        userEmail.textContent = currentUser.email;
+
+        // Atualizar contador de favoritos
+        const favorites = JSON.parse(localStorage.getItem(`favorites_${currentUser.email}`) || '[]');
+        favoritesCount.textContent = favorites.length;
+
+        // Toggle dropdown
+        userAvatar.addEventListener('click', (e) => {
+            e.stopPropagation();
+            document.getElementById('userDropdown').classList.toggle('active');
+        });
+
+        // Fechar dropdown quando clicar fora
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.user-info')) {
+                document.getElementById('userDropdown').classList.remove('active');
+            }
+        });
+
+        // Adicionar eventos de clique para os itens do menu
+        document.querySelectorAll('.user-dropdown-items li').forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const action = item.textContent.trim().toLowerCase();
+                
+                switch(action) {
+                    case 'favoritos':
+                        window.location.href = 'pages/favorites.html';
+                        break;
+                    case 'sair':
+                        logout();
+                        break;
+                    // Adicione mais casos conforme necessário
+                }
+            });
+        });
+
+    } else {
+        userInfo.style.display = 'none';
+        loginBtn.style.display = 'inline-block';
+    }
+});
+
+// Função de logout
+function logout() {
+    localStorage.removeItem('currentUser');
+    window.location.href = 'pages/login.html';
+}
+
+// Função para ir para favoritos (pode ser chamada de qualquer lugar)
+function goToFavorites() {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (currentUser) {
+        window.location.href = 'pages/favorites.html';
+    } else {
+        alert('Faça login para ver seus favoritos');
+        window.location.href = 'pages/login.html';
+    }
+}
+    </script>
+    
+</body>
+</html>
