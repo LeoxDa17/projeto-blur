@@ -3,12 +3,19 @@ A Blur é um projeto/plataforma de e-commerce moderna desenvolvida para marcas d
 
 **Funcionalidades:**
   •	Navegação fácil e acessivel,
+  
   •	Botão de favoritagem funcional,
+  
   •	Buscador de CEP,
+  
   •	Área de registro e login funcional,
+  
   •	Sistema de Carrinho: Adição, remoção e cálculo em tempo real de itens,
+  
   •	Design Responsivo,
+  
   •	Páginas de Detalhes: Visualização ampliada de fotos e seleção de tamanhos,
+  
   •	Checkout Simulado: Integração visual para dados de envio e pagamento.
 
 **Tecnologias Utilizadas:**
